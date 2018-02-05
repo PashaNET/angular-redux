@@ -24,5 +24,6 @@ export class AppComponent {
   ngOnInit() {
     // this.ngRedux.select(state => console.log(state));
     // this.count$ = this.store.select('count')
+    //
   }
 }
