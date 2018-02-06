@@ -1,18 +1,27 @@
-import { INCREMENT } from './actions';
-import { Action } from '@ngrx/store';
+import { INCREMENT, DOUBLE_INCREMENT, ADD_COUNTER } from './actions';
+import { ActionReducer } from '@ngrx/store';
+import { Counter } from './counter.model';
 
 export interface IAppState {
-  count: number;
+  counters: Array<Counter>;
 }
 
-export const INITIAL_STATE: IAppState = {
-  count: 0
+interface Action {
+  type: string;
+  payload: any;
 }
 
-export function rootReducer(state: IAppState = INITIAL_STATE, action: Action): IAppState {
-  console.log(state);
+export const INITIAL_STATE: Array<Counter> = [];
+
+export function rootReducer(state: Array<Counter> = INITIAL_STATE, action: Action): Array<Counter> {
   switch(action.type){
+    case ADD_COUNTER: 
+      return [...action.payload, state];
     case INCREMENT: 
-      return {count: state.count + 1};
+      const count_value = ++action.payload.counter;
+      return state.map( item => item.value == action.payload.value ? Object.assign({}, count, item) : item);
+    case DOUBLE_INCREMENT:
+      const count = --action.payload.counter;
+      return state.map( item => item.value == action.payload.value ? Object.assign({}, count, item) : item);
   }
-}
+}       

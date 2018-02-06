@@ -1,1 +1,3 @@
 export const INCREMENT = "INCREMENT";
+export const DOUBLE_INCREMENT = "DOUBLE_INCREMENT";
+export const ADD_COUNTER = "ADD_COUNTER";

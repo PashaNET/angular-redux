@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-// import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from './store';
-import { INCREMENT } from './actions';
+import { INCREMENT, ADD_COUNTER } from './actions';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -11,19 +10,28 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  count$: Observable<number>;
+  counters: Observable<IAppState>;
 
-  constructor(private store: Store<IAppState>) {
-    this.count$ = store.select('count');
+  constructor(private store: Store<any>) {
+    store.select('counters').subscribe((state) => {this.counters = state;});
+  }
+
+  onAddNewCounter(data) {
+    this.store.dispatch({type: ADD_COUNTER, payload: data});
   }
 
   increment() {
     this.store.dispatch({type: INCREMENT});
   }
 
-  ngOnInit() {
-    // this.ngRedux.select(state => console.log(state));
-    // this.count$ = this.store.select('count')
-    //
+  decrement() {
+
   }
+
+  removeCounter() {
+
+  }
+  
+
+  ngOnInit() {}
 }
