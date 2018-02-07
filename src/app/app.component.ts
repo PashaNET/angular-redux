@@ -20,8 +20,8 @@ export class AppComponent {
     this.store.dispatch({type: ADD_COUNTER, payload: data});
   }
 
-  increment() {
-    this.store.dispatch({type: INCREMENT});
+  increment(data) {
+    this.store.dispatch({type: INCREMENT, payload: data});
   }
 
   decrement() {

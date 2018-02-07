@@ -1,4 +1,4 @@
 <div *ngFor="let counter of counters">
-  <p>{{counter.count}}</p>
-  <p>{{counter.value}}</p>
+  <span>{{counter.value}}</span><span> {{counter.color}}</span><span> {{counter.count}}</span>
+  <button (click)="increment.emit(counter)">Increase counter</button>
 </div>

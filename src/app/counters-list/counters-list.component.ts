@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Counter } from '../counter.model';
 import { State } from '@ngrx/store/src/state';
@@ -11,6 +11,10 @@ import { State } from '@ngrx/store/src/state';
 export class CountersListComponent implements OnInit {
   counters: Array<Counter>;
   
+  @Output() increment: EventEmitter<any> = new EventEmitter();
+  @Output() decrement: EventEmitter<any> = new EventEmitter();
+  @Output() removeCounter: EventEmitter<any> = new EventEmitter();
+
   constructor(private _store: Store<any>) {
     this._store.select('counters').subscribe(state => this.counters = state);
    }
