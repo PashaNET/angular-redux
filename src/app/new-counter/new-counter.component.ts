@@ -10,7 +10,7 @@ export class NewCounterComponent implements OnInit {
   counter: Counter;
 
   constructor() { 
-    this.counter = new Counter();
+    this.createCounter();
   }
 
   ngOnInit() {
@@ -20,6 +20,11 @@ export class NewCounterComponent implements OnInit {
 
   newCounter() {
     this.addNewCounter.emit(this.counter);
+    this.createCounter();
+  }
+
+  createCounter() {
+    this.counter = new Counter();
   }
 
 }

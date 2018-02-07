@@ -1,3 +1,4 @@
-<p>
-  counters-list works!
-</p>
+<div *ngFor="let counter of counters">
+  <p>{{counter.count}}</p>
+  <p>{{counter.value}}</p>
+</div>
