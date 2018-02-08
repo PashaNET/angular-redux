@@ -21,6 +21,7 @@ export class AppComponent {
   }
 
   increment(data) {
+    console.log('inc', data);
     this.store.dispatch({type: INCREMENT, payload: data});
   }
 

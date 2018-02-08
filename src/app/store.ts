@@ -11,12 +11,17 @@ interface Action {
   payload: any;
 }
 
-export const INITIAL_STATE: Array<Counter> = [];
+let testCounter = new Counter();
+testCounter.value = 3;
+testCounter.color = 'red';
+testCounter.counter = 0;
+
+
+export const INITIAL_STATE: Array<Counter> = [testCounter];
 
 export function rootReducer(state: Array<Counter> = INITIAL_STATE, action: Action): Array<Counter> {
   switch(action.type){
     case ADD_COUNTER: 
-      console.log(action);
       return [action.payload, ...state];
     case INCREMENT: 
       const count_value = ++action.payload.counter;

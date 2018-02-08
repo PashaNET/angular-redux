@@ -1,5 +1,5 @@
 <div>
   <app-new-counter (addNewCounter)="onAddNewCounter($event)"></app-new-counter>
-  <app-counters-list (increment)="increment()" (decrement)="decrement()" (removeCounter)="removeCounter($event)"></app-counters-list>
+  <app-counters-list (increment)="increment($event)" (decrement)="decrement($event)" (removeCounter)="removeCounter($event)" [counters]="counters"></app-counters-list>
 </div>
 
