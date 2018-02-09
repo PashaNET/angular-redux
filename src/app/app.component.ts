@@ -13,7 +13,7 @@ export class AppComponent {
   counters: Observable<IAppState>;
 
   constructor(private store: Store<any>) {
-    store.select('counters').subscribe((state) => {this.counters = state;});
+    // store.select('counters').subscribe((state) => {this.counters = state;});
   }
 
   onAddNewCounter(data) {
@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   increment(data) {
-    console.log('inc', data);
     this.store.dispatch({type: INCREMENT, payload: data});
   }
 

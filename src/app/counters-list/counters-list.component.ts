@@ -17,7 +17,7 @@ export class CountersListComponent implements OnInit {
   @Input() counters: Array<Counter>;
 
   constructor(private _store: Store<any>) {
-    // this._store.select('counters').subscribe(state => this.counters = state);
+    this._store.select('counters').subscribe(state => this.counters = state);
    }
 
   ngOnInit() {
