@@ -11,13 +11,7 @@ interface Action {
   payload: any;
 }
 
-let testCounter = new Counter();
-testCounter.value = 3;
-testCounter.color = 'red';
-testCounter.counter = 0;
-
-
-export const INITIAL_STATE: Array<Counter> = [testCounter];
+export const INITIAL_STATE: Array<Counter> = [];
 
 export function rootReducer(state: Array<Counter> = INITIAL_STATE, action: Action): Array<Counter> {
   switch(action.type){
