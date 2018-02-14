@@ -16,7 +16,8 @@ export const INITIAL_STATE: Array<Counter> = [];
 export function rootReducer(state: Array<Counter> = INITIAL_STATE, action: Action): Array<Counter> {
   switch(action.type){
     case ADD_COUNTER: 
-      return [action.payload, ...state];
+      const obj = Object.assign({}, action.payload);
+      return [obj, ...state];
     case INCREMENT: 
       const count_value = ++action.payload.counter;
       return state.map( item => item.value == action.payload.value ? Object.assign({}, count, item) : item);
